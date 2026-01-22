@@ -25,3 +25,11 @@ def home():
         ]
 
     return render_template('pages/home.html', microgreens=microgreens)
+
+@main_bp.route('/cart', methods=['GET', 'POST'])
+def cart():
+    return render_template('pages/cart.html')
+
+@main_bp.route('/profile', methods=['GET', 'POST'])
+def profile():
+    return render_template('pages/profile.html')
