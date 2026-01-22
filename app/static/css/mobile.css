@@ -1,0 +1,92 @@
+/* ================================
+   MOBILE STYLES
+   (Default / <768px)
+================================ */
+
+/* HERO (Mobile BG image) */
+.hero-section {
+  position: relative;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("/static/place-holder.png") center / cover no-repeat;
+  color: #fff;
+  padding: 3rem 0;
+}
+
+/* Hero text */
+.hero-title {
+  font-size: 2rem;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+}
+
+/* Cards */
+.micro-card {
+  height: 220px;
+}
+
+/* Hide carousel arrows on mobile */
+.carousel-control-prev,
+.carousel-control-next {
+  display: none;
+}
+
+/* ===============================
+   MODERN MOBILE SEARCH (NAVBAR)
+================================ */
+
+.navbar {
+  transition: padding 0.3s ease;
+}
+/* MOBILE SEARCH ROW */
+@media (max-width: 991px) {
+
+  .mobile-search-container {
+    width: 100%;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    transition:
+      max-height 0.35s ease,
+      opacity 0.25s ease;
+  }
+
+  .navbar.search-active .mobile-search-container {
+    max-height: 80px;
+    opacity: 1;
+  }
+
+  .mobile-search-input {
+    width: 100%;
+    border-radius: 14px;
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* SEARCH FORM */
+.search-form {
+  width: 100%;
+  gap: 0.5rem;
+}
+
+/* Mobile submit button */
+.search-submit-btn {
+  border-radius: 12px;
+  padding: 0.6rem 0.9rem;
+}
+
+/* Make input + button feel unified */
+.mobile-search-input {
+  border-radius: 14px;
+}
+
+/* Slightly reduce button height to match input */
+.search-submit-btn {
+  height: 44px;
+}

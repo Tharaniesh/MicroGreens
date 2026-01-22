@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero-section text-white">
+  <div class="container">
+    <div class="row align-items-center text-center text-md-start">
+
+      <!-- TEXT -->
+      <div class="col-12 col-md-6 hero-content">
+        <h1 class="hero-title">
+          Fresh Microgreens,<br>Grown With Care
+        </h1>
+
+        <p class="hero-subtitle">
+          Chemical-free, nutrient-rich microgreens grown locally and delivered fresh.
+        </p>
+
+        <div class="d-flex flex-column flex-md-row gap-3 mt-4">
+          <a href="#popular-microgreens" class="btn btn-light btn-lg px-4">
+            Shop Now
+          </a>
+          <a href="#" class="btn btn-outline-light btn-lg px-4">
+            How We Grow
+          </a>
+        </div>
+      </div>
+
+      <!-- IMAGE (DESKTOP ONLY) -->
+      <div class="col-md-6 d-none d-md-flex justify-content-center">
+        <img src="{{ url_for('static', filename='place-holder.png') }}"
+             class="img-fluid hero-img"
+             alt="Fresh Microgreens">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CARD SLIDESHOW -->
+<section id="popular-microgreens" class="py-4 py-md-5 bg-light">
+  <div class="container-fluid">
+
+    <h2 class="text-center fw-bold mb-4">
+      Popular Microgreens
+    </h2>
+
+
+    <!-- MOBILE CAROUSEL -->
+    <div class="d-block d-lg-none">
+      <div id="microgreensCarouselMobile" class="carousel slide" data-bs-interval="5000">
+        <div class="carousel-inner">
+          {% for item in microgreens %}
+          <div class="carousel-item {% if loop.first %}active{% endif %}">
+            <div class="d-flex justify-content-center px-3">
+              <div class="micro-card" style="background-image: url('https://picsum.photos/600/400');">
+                <div class="micro-card-overlay">
+                  <h5 class="micro-card-title">{{ item['name'] }}</h5>
+                  <p class="micro-card-text">{{ item['description'] }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- DESKTOP CAROUSEL -->
+    <div class="d-none d-lg-block">
+      <div id="microgreensCarouselDesktop" class="carousel slide" data-bs-interval="5000">
+        <div class="carousel-inner">
+          {% for group in microgreens|batch(2, fill_with=None) %}
+          <div class="carousel-item {% if loop.first %}active{% endif %}">
+            <div class="row justify-content-center g-3 px-4">
+              {% for item in group %}
+                {% if item %}
+                <div class="col-lg-6 d-flex justify-content-center">
+                  <div class="micro-card"style="background-image: url('https://picsum.photos/600/400');">
+                    <div class="micro-card-overlay">
+                      <h5 class="micro-card-title">{{ item.name }}</h5>
+                      <p class="micro-card-text">{{ item.description }}</p>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!--  -->
+  </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

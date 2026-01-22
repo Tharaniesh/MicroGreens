@@ -1,0 +1,141 @@
+/* HERO BASE (MOBILE DEFAULT) */
+.hero-section {
+  position: relative;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("/static/place-holder.png") center / cover no-repeat;
+  color: #fff;
+}
+
+/* Ensure text stays above bg */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    background: linear-gradient(135deg, #198754, #146c43);
+    min-height: auto;
+    padding: 5rem 0;
+  }
+
+  .hero-title {
+    font-size: 2.75rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+
+  .hero-img {
+    max-height: 360px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel .card {
+    border-radius: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .carousel .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+  }
+
+  .carousel .card-title {
+    font-size: 1.25rem;
+  }
+
+  .carousel .btn {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  section {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Hide carousel arrows */
+#microgreensCarousel .carousel-control-prev,
+#microgreensCarousel .carousel-control-next {display: none;}
+
+/*  Card section */
+
+/* MICRO CARD */
+.micro-card {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 260px;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  background-color: #15aa1a; /* fallback */
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Gradient overlay */
+.micro-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.65),
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0)
+  );
+}
+
+/* Text container */
+.micro-card-overlay {
+  position: relative;
+  z-index: 2;
+  padding: 1.25rem;
+  color: #fff;
+}
+
+.micro-card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.micro-card-text {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Desktop hover */
+@media (min-width: 992px) {
+  .micro-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .micro-card {
+    height: 220px;
+  }
+}
